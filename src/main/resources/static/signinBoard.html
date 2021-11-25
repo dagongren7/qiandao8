@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>签到吧 --基于web的签到平台</title>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!--自定义-->
+    <link rel="stylesheet" href="css/myNavBar.css">
+    <script src="js/isLogin.js"></script>
+    <script src="js/getLoginStatus.js"></script>
+    <script src="js/util/UrlParserUtils.js"></script>
+    <script src="js/util/DateUtils.js"></script>
+    <script src="js/common/ConstProperties.js"></script>
+    <script src="js/util/qrcode.min.js"></script>
+    <link rel="stylesheet" href="css/signinBoard.css">
+    <script src="js/signinBoard.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand navTitle" href="index.html">签到吧</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navItem">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="createActivityChoice.html">创建活动</a></li>
+                <li><a href="viewMyActivities.html">我创建的</a></li>
+                <li><a href="#contact">使用帮助</a></li>
+            </ul>
+            <ul id="userInfo" class="nav navbar-nav navbar-right hidden-sm"></ul>
+        </div>
+    </div>
+</nav>
+
+<div class="board">
+    <div id="left"></div>
+    <div class="right">
+        <div class="info">
+            <p id="actTitle">活动名称</p>
+            <p>创建时间：<span id="createTime"></span></p>
+            <p>结束时间：<span id="endTime"></span></p>
+        </div>
+        <div id="joinBoard">
+            <img src="images/img-nomessage.png" height="280"/>
+            <p class="noPeople">暂无人员签到</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

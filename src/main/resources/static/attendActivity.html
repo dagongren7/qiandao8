@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>活动签到 签到吧 --基于web的签到平台</title>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!--自定义部分-->
+    <script src="js/jquery-validate.js"></script>
+    <link rel="stylesheet" href="css/attendActivity.css">
+    <script src="js/util/DateUtils.js"></script>
+    <script src="js/attendActivity1.js"></script>
+    <script src="js/attendActivity2.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="formContainer shadow col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+        <div class="info">
+            <div id="title">活动标题</div>
+            <div class="detail">
+                <!--// TODO 移动端日期解析有问题，先不暴露出去-->
+                <p >结束时间：<span id="endTime"></span></p>
+                <p >活动发起人：<span id="originator"></span>  </p>
+            </div>
+        </div>
+        <hr>
+        <form id="infoForm" class="form-horizontal myForm ">
+            <div id="basicComponentContainer">
+            </div>
+            <div id="listComponentContainer">
+            </div>
+            <!--项目二期再做 使用cookie缓存一些信息-->
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> 保存签到信息
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-xs-12 col-sm-8 col-md-6 col-lg-4">
+                    <button id="submit" type="button" class="btn btn btn-warning">提交</button>
+                </div>
+            </div>
+
+
+        </form>
+
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2019 签到吧 基于web的签到系统</p>
+</footer>
+</body>
+
+</html>

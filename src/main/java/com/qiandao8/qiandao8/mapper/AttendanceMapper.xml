@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiandao8.qiandao8.mapper.AttendanceMapper">
+  <resultMap id="BaseResultMap" type="com.qiandao8.qiandao8.domain.Attendance">
+    <id column="id" property="id" />
+    <result column="activity_id"  property="activityId" />
+    <result column="status" property="status" />
+    <result column="basic_selc_info"  property="basicSelcInfo" />
+    <result column="list_selc_info"  property="listSelcInfo" />
+    <result column="check_in_time" property="checkInTime" />
+  </resultMap>
+
+  <resultMap id="FullResultMap" type="com.qiandao8.qiandao8.domain.Attendance">
+    <id column="id" property="id" />
+    <result column="activity_id"  property="activityId" />
+    <result column="status" property="status" />
+    <result column="ip_addr"  property="ipAddr" />
+    <result column="check_in_time" property="checkInTime" />
+    <result column="current_location"  property="currentLocation" />
+    <result column="verify_password" property="verifyPassword" />
+    <result column="basic_selc_info"  property="basicSelcInfo" />
+    <result column="list_selc_info"  property="listSelcInfo" />
+  </resultMap>
+
+  <sql id="basic_column">
+    id, activity_id, status, basic_selc_info, list_selc_info, check_in_time
+  </sql>
+
+  <sql id="full_column">
+    id, activity_id, status, ip_addr, check_in_time, current_location, verify_password,basic_selc_info, list_selc_info
+  </sql>
+
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.qiandao8.qiandao8.domain.Attendance" useGeneratedKeys="true">
+    insert into `attendance` (activity_id, status, ip_addr,
+      check_in_time, current_location, verify_password,
+      basic_selc_info, list_selc_info)
+    values (#{activityId}, #{status}, #{ipAddr},
+      #{checkInTime}, #{currentLocation}, #{verifyPassword},
+      #{basicSelcInfo}, #{listSelcInfo})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.qiandao8.qiandao8.domain.Attendance">
+    update `attendance`
+    set activity_id = #{activityId},
+      status = #{status},
+      ip_addr = #{ipAddr},
+      check_in_time = #{checkInTime},
+      current_location = #{currentLocation},
+      verify_password = #{verifyPassword},
+      basic_selc_info = #{basicSelcInfo},
+      list_selc_info = #{listSelcInfo}
+    where id = #{id}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select <include refid="basic_column"/>
+    from `attendance`
+    where id = #{id}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select <include refid="basic_column"/>
+    from `attendance`
+  </select>
+  <select id="listAttendanceByAid" resultMap="BaseResultMap">
+    select <include refid="basic_column"/>
+    from `attendance`
+    where activity_id =#{aid}
+  </select>
+</mapper>
